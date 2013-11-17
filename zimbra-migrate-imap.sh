@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
   host1=mail01.int.drjays.com
   #host1 is Source
 
