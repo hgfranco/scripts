@@ -1,7 +1,5 @@
 # ALIAS (run 'source ~/.bash_profile' to activate)
 
-# RUN source ~/.bash_profile to reload profile
-
   # Vagrant Alias
   alias vg=/usr/bin/vagrant
 
