@@ -4,6 +4,8 @@
 #
 # Pass the Instance ID as a parameter
 #
+# henryfranco.com/2015/01/12/setting-up-aws-ec2-on-centos/
+#
 
 INSTANCE=$1
 
