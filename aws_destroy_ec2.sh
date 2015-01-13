@@ -15,3 +15,5 @@ if [ $# -lt 1 ]; then
 fi
 
 aws ec2 terminate-instances --instance-ids $INSTANCE
+
+exit
