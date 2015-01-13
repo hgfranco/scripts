@@ -2,4 +2,14 @@
 #
 # The following script will destroy your AWS EC2 instance.
 #
+# Pass the Instance ID as a parameter
+#
 
+INSTANCE=$1
+
+if [ $# -lt 1 ]; then
+        echo "./aws_destroy_ec2.sh instance-id"
+	exit
+fi
+
+aws ec2 terminate-instances --instance-ids $INSTANCE
