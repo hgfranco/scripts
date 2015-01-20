@@ -7,6 +7,9 @@
 # henryfranco.com/2015/01/12/setting-up-aws-cli-on-centos/
 #
 
+echo 'Current ec2 instances:'
+aws ec2 describe-instances --query 'Reservations[].Instances[].[InstanceId]' --output text
+
 INSTANCE=$1
 
 if [ $# -lt 1 ]; then
