@@ -1,0 +1,20 @@
+#
+# PowerMTA queue status check plugin
+# Henry Franco
+#
+
+#!/bin/bash
+
+pmta="/usr/sbin/pmta"
+
+response=`$pmta show queues --paused=yes | tail -1 | tr '\n' ' '`
+
+	if [[ "$response" == "0 of 0 matching queues. " ]]; then
+   		echo "OK - PowerMTA queue is not paused - $response"
+   		STATUS=0
+	else
+    		echo "CRITICAL - PowerMTA queue is paused - $response"
+		STATUS=2
+	fi
+
+exit $STATUS
