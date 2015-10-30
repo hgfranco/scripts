@@ -18,3 +18,4 @@ response=`$pmta show queues --paused=yes | tail -1 | tr '\n' ' '`
 	fi
 
 exit $STATUS
+
