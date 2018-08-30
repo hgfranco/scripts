@@ -23,18 +23,31 @@
   # Color cat
   alias cat="pygmentize -g"
 
-  # SSH
-#  alias ssh="ssh -lhfranco"
-
   # twidge show 20 most recent updates
   alias trecent="twidge lsrecent -su"
 
+  gitansible() {
+    #do things with parameters like $1 such as
+    git clone git@github.com:renttherunway/$1.git $2
+  }
+  
   alias ga="gitansible"
+  
+  gitemail() {
+    if [ $# -lt 1 ]; then
+       git config user.email
+    else
+       git config user.email "$1"
+    fi
+  }
+  
+  alias gemail="gitemail"
+
 # Export
 
   # Show fullpath on terminal
-#  export PS1='\u@\H [\w]$ '
- 
+  export PS1='\u -> 🤷🏻‍♂️  [\W]$ '
+
   # Set JAVA_HOME
 #  export JAVA_HOME=$(/usr/libexec/java_home)
 
