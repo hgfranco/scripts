@@ -1,8 +1,5 @@
 # ALIAS (run 'source ~/.bash_profile' to activate)
 
-  # Ansible Playbook Alias
-  alias ap="/usr/local/bin/ansible-playbook --private-key=~/.ssh/id_rsa_opsbot -u opsbot" 
-
   # Vagrant Alias
   alias vg=/usr/local/bin/vagrant
 
@@ -32,29 +29,6 @@
   # twidge show 20 most recent updates
   alias trecent="twidge lsrecent -su"
 
-  # Carnival VPN
-  alias carnvpn='sudo openvpn --config /home/hfranco/carnival/henry.ovpn'
-
-  # NJ Tunnel
-  alias njtunnel='ssh -f -N -L 8888:127.0.0.1:8080 nj1-jump1.sailthru.com'
-  
-  # Sonar Qube
-  alias sonartunnel='ssh -N -f -L 8448:10.0.7.223:8080 vpc-jump1.sailthru.com' 
-  
-  # NY Tunnel
-  alias nytunnel='ssh -f -N -L 8888:127.0.0.1:8080 ny1-jump1.sailthru.com'
-
-  # LDAP
-  alias sailldap='ssh -N -f -L 1389:nj1-ldp-01.flt:389 nj1-jump1.flt'
-
-  # Chef Tunnel
-  alias cheftunnel='ssh -N -f -L 8443:nj1-chf-01:443 nj1-jump1.sailthru.com'
-
-  gitansible() {
-    #do things with parameters like $1 such as
-    git clone git@github.com:sailthru/ansible.git $1
-  }
-  
   alias ga="gitansible"
 # Export
 
