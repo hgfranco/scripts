@@ -1,21 +1,36 @@
 #
-# PowerMTA queue status check plugin
+# PowerMTA queue check plugin
 # Henry Franco
 #
 
 #!/bin/bash
 
+
+  while getopts "w:c" OPT; do
+    case $OPT in
+    "w") warning=$OPTARG;;
+    "c") critical=$OPTARG;;
+    \?) echo "Invalid option: -$OPTARG" >&2
+    exit -1
+    ;;
+    esac
+  done
+
 pmta="/usr/sbin/pmta"
+response=`sudo -u pmta $pmta --dom show status | grep status.queue.smtp.rcp | cut -d '"' -f2 | tr '\n' ' '`
 
-response=`$pmta show queues --paused=yes | tail -1 | tr '\n' ' '`
-
-	if [[ "$response" == "0 of 0 matching queues. " ]]; then
-   		echo "OK - PowerMTA queue is not paused - $response"
-   		STATUS=0
-	else
-    		echo "CRITICAL - PowerMTA queue is paused - $response"
-		STATUS=2
+	if [[ "$response" -gt "$critical" ]]; then
+   		echo "CRITICAL - $response in pmta queue"
+   		STATUS=2
+	elif [[ "$response" -gt "$warning" && "$response" -lt "$critical" ]]; then
+      echo "WARNING - $response in pmta queue"
+		  STATUS=1
+  elif [[ "$response" -lt "$warning" ]]; then
+      echo "OK - $response in pmta queue"
+      STATUS=0
+  else
+      echo "UNKNOWN: Failure to parse PMTA status"
+      STATUS=3
 	fi
 
 exit $STATUS
-

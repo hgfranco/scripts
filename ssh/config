@@ -1,0 +1,48 @@
+Host rg-stage-jump-1
+  hostname ec2-18-210-183-18.compute-1.amazonaws.com
+  ServerAliveInterval 120
+
+Host rg-stage-db-1
+  hostname ip-10-0-1-89.ec2.internal
+  ProxyCommand ssh -q -W %h:%p hfranco@ec2-18-210-183-18.compute-1.amazonaws.com
+  ServerAliveInterval 120
+
+Host rg-stage-web-1
+  hostname ip-10-0-101-125.ec2.internal
+  ProxyCommand ssh -q -W %h:%p hfranco@ec2-18-210-183-18.compute-1.amazonaws.com
+  ServerAliveInterval 120
+
+#Host *.ec2.internal
+#  ProxyCommand ssh -q -W %h:%p hfranco@ec2-18-210-183-18.compute-1.amazonaws.com
+
+Host web
+HostName 34.238.142.61
+User hops
+Port 22
+ForwardAgent yes
+IdentityFile ~/.ssh/FrancoTech.pem
+
+Host ha
+HostName ha.henryfranco.com
+User hops
+Port 22
+ForwardAgent yes
+IdentityFile ~/.ssh/FrancoTech.pem
+
+Host app2
+HostName 192.237.144.89
+User hfranco
+Port 22
+
+Host db2
+HostName 192.237.144.88
+User hfranco
+Port 22
+
+Host docker
+HostName 34.194.189.137
+User hops
+Port 22
+ForwardAgent yes
+IdentityFile ~/.ssh/FrancoTech.pem
+
