@@ -3,6 +3,9 @@
   # Vagrant Alias
   alias vg=/usr/local/bin/vagrant
 
+  # Packer Alias
+  alias pk=/usr/local/bin/packer
+
   # Sublime Alias
   alias subl="/Users/hfranco/bin/subl -n"
 
@@ -45,6 +48,8 @@
 
 # Export
 
+export PATH=~/Library/Python/2.7/bin:$PATH
+
   # Show fullpath on terminal
   export PS1='\u -> 🤷🏻‍♂️  [\W]$ '
 
@@ -85,3 +90,8 @@ PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
 export PATH
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# Setting PATH for Python 3.7
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
+export PATH
